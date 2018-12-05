@@ -61,9 +61,15 @@ WHERE facid in (1,5)
 more than $100? Return the name and monthly maintenance of the facilities
 in question. */
 
+SELECT name,
+case when (monthlymaintenance > 100)
+then 'expensive'
+else 'cheap' end as cost
+FROM country_club.Facilities
 
 /* Q6: You'd like to get the first and last name of the last member(s)
 who signed up. Do not use the LIMIT clause for your solution. */
+
 
 
 /* Q7: How can you produce a list of all members who have used a tennis court?
