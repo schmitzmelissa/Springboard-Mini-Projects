@@ -49,22 +49,12 @@ SELECT facid,
 FROM  country_club.Facilities
 WHERE membercost < (monthlymaintenance * .2)
 
-RESULT:
-facid	name	         membercost	monthlymaintenance
-0       Tennis Court 1	 5.0	    200
-1	    Tennis Court 2	 5.0	    200
-2	    Badminton Court	 0.0	    50
-3	    Table Tennis	 0.0	    10
-4	    Massage Room 1	 9.9	    3000
-5	    Massage Room 2	 9.9	    3000
-6     	Squash Court	 3.5	    80
-7	    Snooker Table	 0.0	    15
-8	    Pool Table	     0.0	    15
-
 /* Q4: How can you retrieve the details of facilities with ID 1 and 5?
 Write the query without using the OR operator. */
 
-/* ??? */
+SELECT *
+FROM country_club.Facilities
+WHERE facid in (1,5)
 
 /* Q5: How can you produce a list of facilities, with each labelled as
 'cheap' or 'expensive', depending on if their monthly maintenance cost is
