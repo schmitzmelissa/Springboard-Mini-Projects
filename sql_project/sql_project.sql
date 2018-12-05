@@ -116,7 +116,7 @@ SELECT member, facility, cost
 FROM (
 
 SELECT mems.surname AS member, facs.name AS facility,
-CASE 
+CASE
 WHEN mems.memid =0
 THEN bks.slots * facs.guestcost
 ELSE bks.slots * facs.membercost
@@ -134,3 +134,15 @@ ORDER BY cost DESC
 /* Q10: Produce a list of facilities with a total revenue less than 1000.
 The output of facility name and total revenue, sorted by revenue. Remember
 that there's a different cost for guests and members! */
+
+SELECT name, totalrevenue
+FROM (
+SELECT facs.name, 
+SUM(CASE WHEN memid =0 THEN slots * facs.guestcost ELSE slots * membercost END ) AS totalrevenue
+FROM  `Bookings` bks
+INNER JOIN  `Facilities` facs ON bks.facid = facs.facid
+GROUP BY facs.name
+)
+AS selected_facilities
+WHERE totalrevenue <=1000
+ORDER BY totalrevenue
