@@ -16,3 +16,6 @@
  
 ### 2. Logistic Regression
  - Answer a series of questions using logstic regression techniques to determine height and weights people.
+
+### 3. Naive Bayes
+ - Predicting movie ratings from reviews using Naive Bayes methods
